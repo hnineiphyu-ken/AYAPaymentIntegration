@@ -1,6 +1,6 @@
 <?php
 
-namespace kennebula\PaymentIntegration\Providers;
+namespace kennebula\AYAPaymentIntegration\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

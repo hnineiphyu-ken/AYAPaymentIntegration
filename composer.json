@@ -1,21 +1,28 @@
 {
-    "name": "kennebula/payment-integration-service",
+    "name": "KenNebula/AYAPaymentIntegration",
     "description": "Payment Integration Services for aya provider",
     "type": "service",
     "license": "MIT",
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Kennebula\\PaymentIntegrationService\\": "src/"
+            "KenNebula\\AYAPaymentIntegration\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "kennebula",
+            "name": "KenNebula",
             "email": "hnineiphyucu@gmail.com"
         }
     ],
     "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KenNebula\\AYAPaymentIntegration\\Providers\\PackageServiceProvider"
+            ]
+        }
+    },
     "repositories": [
         {
             "type": "path",
