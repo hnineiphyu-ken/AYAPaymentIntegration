@@ -1,5 +1,5 @@
 {
-    "name": "KenNebula/AYAPaymentIntegration",
+    "name": "ken-nebula/aya-payment-integration",
     "description": "Payment Integration Services for aya provider",
     "type": "service",
     "license": "MIT",
