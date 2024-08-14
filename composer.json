@@ -3,7 +3,7 @@
     "description": "Payment Integration Services for aya provider",
     "type": "service",
     "license": "MIT",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "KenNebula\\AYAPaymentIntegration\\": "src/"
