@@ -1,0 +1,1 @@
+php artisan vendor:publish --provider="kennebula\PaymentIntegration\Providers\PackageServiceProvider" --tag="config"
