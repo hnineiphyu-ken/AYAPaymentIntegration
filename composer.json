@@ -19,7 +19,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./packages/YourVendorName/YourPackageName"
+            "url": "https://github.com/hnineiphyu-ken/AYAPaymentIntegration"
         }
     ]
     
