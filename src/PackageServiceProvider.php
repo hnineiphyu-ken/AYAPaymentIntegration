@@ -1,10 +1,9 @@
 <?php
 
-namespace KenNebula\AYAPaymentIntegration\Providers;
+namespace KenNebula\AYAPaymentIntegration;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use KenNebula\AYAPaymentIntegration\AYA;
 
 class PackageServiceProvider extends ServiceProvider
 {
@@ -18,7 +17,7 @@ class PackageServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Example: Publishing configuration file
             $this->publishes([
-              __DIR__.'/../config/config.php' => config_path('aya.php'),
+              __DIR__.'/config/config.php' => config_path('aya.php'),
           ], 'config');
         
           }

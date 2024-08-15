@@ -16,6 +16,7 @@ class AYA extends Facade{
      * $user_token ('user_token' get from getAccessToken Function)
      * return Json (err, message, data['externalTransactionId', 'referenceNumber'])
      */
+    public static 
     public static function pushPayment($amount, $order_no, $customer_phone, $access_token, $user_token) : Array
     {
         $app_type = config('APP_TYPE');

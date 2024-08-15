@@ -12,7 +12,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "KenNebula\\AYAPaymentIntegration\\Providers\\PackageServiceProvider"
+                "KenNebula\\AYAPaymentIntegration\\PackageServiceProvider"
             ]
         }
     },
