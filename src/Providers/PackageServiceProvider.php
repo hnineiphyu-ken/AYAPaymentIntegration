@@ -10,10 +10,6 @@ class PackageServiceProvider extends ServiceProvider
 {
     public function register() : void 
     {
-      // Bind the 'aya' key to the AYA service class
-      $this->app->singleton('AYA', function($app) {
-          return new AYA();
-      });
     }
 
     public function boot() : void 

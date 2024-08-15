@@ -6,10 +6,6 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Facade;
 
 class AYA extends Facade{
-    protected static function getFacadeAccessor()
-    {
-        return 'AYA'; // This is the key used in the service container
-    }
     /**
      * AYA Pay payment with pin
      * parameters 
