@@ -3,7 +3,6 @@ namespace KenNebula\AYAPaymentIntegration;
 
 use ErrorException;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Facade;
 
 class AYA {
     public static function test()

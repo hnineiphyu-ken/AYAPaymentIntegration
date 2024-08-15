@@ -13,7 +13,6 @@ class PackageServiceProvider extends ServiceProvider
 
     public function boot() : void 
     {
-        AliasLoader::getInstance()->alias('AYA', \KenNebula\AYAPaymentIntegration\AYA::class);
         if ($this->app->runningInConsole()) {
             // Example: Publishing configuration file
             $this->publishes([
