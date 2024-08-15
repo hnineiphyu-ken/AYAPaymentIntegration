@@ -8,6 +8,7 @@ class PackageServiceProvider extends ServiceProvider
 {
     public function register() : void 
     {
+      $this->app->make('KenNebula\AYAPaymentIntegration\AYA');
     }
 
     public function boot() : void 

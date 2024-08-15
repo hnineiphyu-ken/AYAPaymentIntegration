@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace KenNebula\AYAPaymentIntegration;
 
 use ErrorException;
 use Illuminate\Support\Facades\Http;
