@@ -27,7 +27,7 @@ Set Up Tools
 Running Command:
 --------------------------
 
-    php artisan vendor:publish --provider="HKenNebula\AYAPaymentIntegration\PackageServiceProvider" --tag="config"
+    php artisan vendor:publish --provider="KenNebula\AYAPaymentIntegration\PackageServiceProvider" --tag="config"
 
 Config Output
 ----------
