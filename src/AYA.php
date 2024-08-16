@@ -9,6 +9,46 @@ class AYA {
     {
         return "ken nebula test";
     }
+
+    /**
+     * return Json (access_token, scope, token_type, expires_in)
+     */
+    public static function getAccessToken() : Array
+    {
+        $app_type = config('APP_TYPE');
+        $url = config('aya.'.$app_type.'.access_token');
+        $body = [
+            "grant_type" =>  "client_credentials"
+        ];
+        $response = Http::withHeaders([
+            "Content-Type" => "application/x-www-form-urlencoded",
+            "Authorization" => "Basic ".self::base64(),
+        ])->asForm()->post($url, $body);
+        $responseJson = $response->json();
+
+        return $responseJson;
+    }
+
+    /**
+     * parameter $access_token ('access_token' get from getAccessToken Function)
+     * return Json (err, message, token['token', 'expiredAt'])
+     */
+    public static function getUserToken(String $access_token) : Array
+    {
+        $app_type = config('APP_TYPE');
+        $url = config('aya.'.$app_type.'.user_token');
+        $body = [
+            "phone" =>  config('aya.phone'),
+            "password" =>  config('aya.password')
+        ];
+        $response = Http::withHeaders([
+            "Content-Type" => "application/json",
+            "Token" => "Bearer ".$access_token,
+        ])->post($url, $body);
+        $responseJson = $response->json();
+        
+        return $responseJson;
+    } 
     /**
      * AYA Pay payment with pin
      * parameters 
@@ -19,7 +59,7 @@ class AYA {
      * $user_token ('user_token' get from getAccessToken Function)
      * return Json (err, message, data['externalTransactionId', 'referenceNumber'])
      */
-    public static function pushPayment($amount, $order_no, $customer_phone, $access_token, $user_token) : Array
+    public static function pushPayment(String $amount, String $order_no, String $customer_phone, String $access_token, String $user_token) : Array
     {
         $app_type = config('APP_TYPE');
         $url = config('aya.'.$app_type.'.push_payment');
@@ -49,7 +89,7 @@ class AYA {
      * $user_token ('user_token' get from getAccessToken Function)
      * return Json (err, message, data['status', 'qrdata', 'amount', 'fees', 'type', 'expiredAt', 'action', 'externalTransactionId', 'referenceNumber'])
      */
-    public static function qrPayment($amount, $order_no, $access_token, $user_token) : Array
+    public static function qrPayment(String $amount, String $order_no, String $access_token, String $user_token) : Array
     {
         $app_type = config('APP_TYPE');
         $url = config('aya.'.$app_type.'.qr_payment');
@@ -68,46 +108,6 @@ class AYA {
         $responseJson = $response->json();
         return $responseJson;
     } 
-
-    /**
-     * parameter $access_token ('access_token' get from getAccessToken Function)
-     * return Json (err, message, token['token', 'expiredAt'])
-     */
-    public static function getUserToken($access_token) : Array
-    {
-        $app_type = config('APP_TYPE');
-        $url = config('aya.'.$app_type.'.user_token');
-        $body = [
-            "phone" =>  config('aya.phone'),
-            "password" =>  config('aya.password')
-        ];
-        $response = Http::withHeaders([
-            "Content-Type" => "application/json",
-            "Token" => "Bearer ".$access_token,
-        ])->post($url, $body);
-        $responseJson = $response->json();
-        
-        return $responseJson;
-    } 
-
-    /**
-     * return Json (access_token, scope, token_type, expires_in)
-     */
-    public static function getAccessToken() : Array
-    {
-        $app_type = config('APP_TYPE');
-        $url = config('aya.'.$app_type.'.access_token');
-        $body = [
-            "grant_type" =>  "client_credentials"
-        ];
-        $response = Http::withHeaders([
-            "Content-Type" => "application/x-www-form-urlencoded",
-            "Authorization" => "Basic ".self::base64(),
-        ])->asForm()->post($url, $body);
-        $responseJson = $response->json();
-
-        return $responseJson;
-    }
     
     private static function base64() : String 
     {
