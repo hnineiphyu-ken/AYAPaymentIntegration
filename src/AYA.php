@@ -15,6 +15,7 @@ class AYA {
      */
     public static function getAccessToken() : Array
     {
+        static::checkConfigData();
         $app_type = config('APP_TYPE');
         $url = config('aya.'.$app_type.'.access_token');
         $body = [
@@ -35,6 +36,7 @@ class AYA {
      */
     public static function getUserToken(String $access_token) : Array
     {
+        static::checkConfigData();
         $app_type = config('APP_TYPE');
         $url = config('aya.'.$app_type.'.user_token');
         $body = [
@@ -61,6 +63,7 @@ class AYA {
      */
     public static function pushPayment(String $amount, String $order_no, String $customer_phone, String $access_token, String $user_token) : Array
     {
+        static::checkConfigData();
         $app_type = config('APP_TYPE');
         $url = config('aya.'.$app_type.'.push_payment');
         $body = [
@@ -91,6 +94,7 @@ class AYA {
      */
     public static function qrPayment(String $amount, String $order_no, String $access_token, String $user_token) : Array
     {
+        static::checkConfigData();
         $app_type = config('APP_TYPE');
         $url = config('aya.'.$app_type.'.qr_payment');
         $body = [
